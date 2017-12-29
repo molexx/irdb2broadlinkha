@@ -49,5 +49,5 @@ then run `irdb2broadlinkha.bash` for each remote:
 
     ./irdb2broadlinkha.bash 'Sky/Unknown_DVB-S/0,12.csv' Sky_ >~/.homeassistant/broadlink/sky.yaml  
 
-    ./irdb2broadlinkha.bash 'Yamaha/Receiver/120%2C-1.csv' Sky_ >~/.homeassistant/broadlink/yamaha_receiver.yaml
+    ./irdb2broadlinkha.bash 'Yamaha/Receiver/120%2C-1.csv' amp_ >~/.homeassistant/broadlink/yamaha_receiver.yaml
 
