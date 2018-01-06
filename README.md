@@ -2,8 +2,13 @@
 
 Creates HomeAssistant's .yaml containing Broadlink IR codes for entire remotes found in the irdb (`https://github.com/probonopd/irdb/tree/master/codes`) or lirc (`https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/remotes/`) databases.
 
-** It is currently suggested to try irdb first as converting lirc devices is much slower right now **
+**It is currently suggested to try irdb first as converting lirc devices is much slower right now**
 
+
+# Download
+Clone this git repo or download the script using curl:  
+
+    curl https://raw.githubusercontent.com/molexx/irdb2broadlinkha/master/irdb2broadlinkha.bash -o irdb2broadlinkha.bash 
 
 # Dependencies
 
@@ -23,15 +28,17 @@ Will be automatically downloaded and stored in the work dir 'irdb2broadlinkha-wo
 
 # Usage
 
-Find your remote in irdb under 
+Find your remote in irdb under:
 
-    https://github.com/probonopd/irdb/tree/master/codes  
- - note the path of the .csv file under the codes/ directory, e.g. `Sky/Unknown_DVB-S/0,12.csv`
+> https://github.com/probonopd/irdb/tree/master/codes  
+   
+note the path of the .csv file under the codes/ directory, e.g. `Sky/Unknown_DVB-S/0,12.csv`
 
-or the lirc config under  
+or the lirc config under:  
 
-    https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/remotes/  
- - note the path of the .lircd.conf file under the remotes/ directory, e.g. `apple/A1294.lircd.conf`
+> https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/remotes/  
+  
+note the path of the .lircd.conf file under the remotes/ directory, e.g. `apple/A1294.lircd.conf`
 
 
 Then run this script with parameters:  
@@ -72,7 +79,7 @@ then run `irdb2broadlinkha.bash` for each remote:
 
     ./irdb2broadlinkha.bash 'Sky/Unknown_DVB-S/0,12.csv' Sky_ >~/.homeassistant/broadlink/sky.yaml  
 
-    ./irdb2broadlinkha.bash 'Yamaha/Receiver/120%2C-1.csv' amp_ >~/.homeassistant/broadlink/yamaha_receiver.yaml  
+    `./irdb2broadlinkha.bash 'Yamaha/Receiver/120%2C-1.csv' amp_ >~/.homeassistant/broadlink/yamaha_receiver.yaml`  
 
 
 
@@ -80,6 +87,6 @@ then run `irdb2broadlinkha.bash` for each remote:
 
 When you don't know which remote you need from irdb this tool can download all the remotes in a directory and process them all.
 Pass a search pattern (third parameter) of "POWER" to just get the power buttons, then go through them manually until you find the ones that work for your device.
-e.g.:
-
-    ./irdb2broadlinkha.bash 'Yamaha/Receiver' amptest_ POWER >~/.homeassistant/broadlink/yamaha_all_test.yaml  
+e.g.:  
+  
+    `./irdb2broadlinkha.bash 'Yamaha/Receiver' amptest_ POWER >~/.homeassistant/broadlink/yamaha_all_test.yaml`
